@@ -1,0 +1,10 @@
+category	cell_class	subtype_or_program	marker_genes	priority
+annotation	epithelial	pan_epithelial	EPCAM,KRT8,KRT18,KRT19,TACSTD2,MSLN,MUC1	high
+annotation	fibroblast_CAF	pan_fibroblast	COL1A1,COL1A2,DCN,LUM,COL3A1	high
+annotation	myeloid	pan_myeloid	LYZ,S100A8,C1QC,C1QB,CTSS,FCER1G	high
+annotation	T_NK	pan_T_NK	CD3D,CD3E,TRBC1,TRBC2,IL7R,NKG7	high
+annotation	B_plasma	B_cell	MS4A1,CD79A,CD74,HLA-DRA,CD37	high
+annotation	B_plasma	plasma_cell	MZB1,JCHAIN,SDC1,DERL3,IGHG1	high
+annotation	endothelial	pan_endothelial	PECAM1,KDR,EMCN,RAMP2,ESAM	high
+annotation	pericyte	pan_pericyte	RGS5,MCAM,CSPG4,PDGFRB,NOTCH3	high
+annotation	Schwann_neural	pan_neural_glial	SOX10,S100B,MPZ,PLP1,PMP22,NGFR	high

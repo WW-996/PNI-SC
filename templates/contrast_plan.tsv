@@ -1,0 +1,8 @@
+analysis_level	comparison_scope	group_a	group_b	unit	note
+global	tissue_type	tumor	adjacent	sample	paired within patient
+tumor_only	pni_trend	low	medium	sample	exploratory trend only
+tumor_only	pni_trend	medium	high	sample	exploratory trend only
+tumor_only	pni_trend	low	high	sample	exploratory trend only
+epithelial	state_shift	tumor	adjacent	cell_state	use malignant epithelial subset
+microenvironment	composition	PNI_low	PNI_high	cell_type	report sample-level values
+communication	priority_axes	AREG-EGFR	CXCL-CXCR	pathway	retain spatially testable pairs

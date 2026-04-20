@@ -1,0 +1,35 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+.claude/
+.gemini/
+
+# Python cache / build
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local environments
+.conda/
+.venv/
+venv/
+
+# Jupyter temp
+.ipynb_checkpoints/
+tmp_code_cell_*.py
+
+# Large/raw data and generated outputs
+data/raw/
+results/
+
+# Keep directory placeholders if needed
+!data/raw/.gitkeep
+!results/.gitkeep

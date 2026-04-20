@@ -1,0 +1,9 @@
+signature_name	compartment	representative_genes	intended_use	priority
+PNI-associated malignant program	epithelial	AREG,EGFR,EGR1,LAMC2,ITGB4,VIM,MMP7,CXCL5	module scoring in malignant epithelial	high
+mCAF / ECM-remodeling CAF	fibroblast_CAF	COL11A1,CTHRC1,THBS2,SULF1,MMP14,POSTN,ACTA2,TAGLN	identify fibrosis and invasion-associated stroma	high
+inflammatory / SPP1+ TAM	myeloid	SPP1,IL1B,APOE,C1QC,TREM2,FCER1G,CTSB	identify inflammatory and remodeling macrophages	high
+neutrophil-related inflammation	myeloid	S100A8,S100A9,CXCL8,FCGR3B,CSF3R,FPR1	track inflammatory recruitment state	high
+Schwann / neural-interaction program	Schwann_neural	SOX10,S100B,MPZ,PLP1,NGFR,DAG1,ITGB4,MPZL1	neural-related mapping and fallback scoring	medium
+CD8 dysfunction / immune suppression	T_NK	PDCD1,LAG3,TIGIT,HAVCR2,TOX,CXCL13,CTLA4	quantify T-cell dysfunction across samples	high
+tumor ECM-adhesion interaction	epithelial_fibroblast	LAMC2,LAMB3,ITGA6,ITGB4,COL1A1,COL11A1,THBS2	support spatially testable interaction hypotheses	medium
+axon guidance / neural remodeling	multicompartment	NRP1,SEMA3C,ROBO1,PLXNB2,EFNA1,L1CAM	cross-compartment neural remodeling hypothesis	medium

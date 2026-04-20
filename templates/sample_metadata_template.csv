@@ -1,0 +1,7 @@
+sample_id,patient_id,pair_id,tissue_type,pni_level,library_id,sequencing_batch,sex,age,pathology_note
+P01_T,P01,P01,tumor,high,LIB001,B1,,, 
+P01_A,P01,P01,adjacent,high,LIB002,B1,,, 
+P02_T,P02,P02,tumor,medium,LIB003,B1,,, 
+P02_A,P02,P02,adjacent,medium,LIB004,B1,,, 
+P03_T,P03,P03,tumor,low,LIB005,B1,,, 
+P03_A,P03,P03,adjacent,low,LIB006,B1,,, 

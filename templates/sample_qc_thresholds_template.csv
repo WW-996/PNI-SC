@@ -1,0 +1,7 @@
+sample_id,gene_low_cutoff,gene_high_cutoff,umi_low_cutoff,umi_high_cutoff,mt_cutoff,expected_doublet_rate,notes
+P01_T,300,7000,500,40000,20,0.06,tumor sample threshold placeholder
+P01_A,300,8000,500,50000,24,0.05,adjacent sample threshold placeholder
+P02_T,300,8000,500,50000,24,0.06,tumor sample threshold placeholder
+P02_A,300,9000,500,75000,24,0.05,adjacent sample threshold placeholder
+P03_T,300,6500,500,40000,20,0.06,tumor sample threshold placeholder
+P03_A,300,7000,500,40000,24,0.05,adjacent sample threshold placeholder

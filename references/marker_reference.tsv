@@ -1,0 +1,31 @@
+category	cell_class	subtype_or_program	marker_genes	priority	source_note
+annotation	epithelial	pan-epithelial	EPCAM,KRT8,KRT18,KRT19,TACSTD2,MSLN,MUC1	high	general epithelial annotation
+annotation	epithelial	normal_biliary_like	KRT19,EPCAM,MUC1,KRT7,SOX9	medium	biliary epithelial reference
+annotation	epithelial	malignant_support	EPCAM,KRT8,KRT18,KRT19,MSLN,MUC1,CEACAM6	medium	combine with CNV inference
+annotation	fibroblast_CAF	pan_fibroblast	COL1A1,COL1A2,DCN,LUM,COL3A1	high	stromal annotation
+annotation	fibroblast_CAF	myCAF_mCAF	TAGLN,ACTA2,MYL9,TPM2,CNN1	high	contractile CAF
+annotation	fibroblast_CAF	iCAF_inflammatory	CXCL12,CXCL14,IL6,C7,CFD,DCN	medium	inflammatory fibroblast-like
+annotation	fibroblast_CAF	ecm_remodeling_CAF	CTHRC1,THBS2,SULF1,COL11A1,MMP14,POSTN	high	dCCA PNI-like ECM remodeling
+annotation	myeloid	monocyte	LYZ,S100A8,S100A9,FCN1,CTSS	high	myeloid precursor-like
+annotation	myeloid	macrophage_TAM	C1QC,C1QB,APOE,CTSB,FCER1G	high	resident/TAM-like
+annotation	myeloid	inflammatory_TAM_SPP1	SPP1,IL1B,NLRP3,CXCL8,CCL3,CCL4	high	PNI/inflammatory candidate
+annotation	myeloid	neutrophil_like	S100A8,S100A9,CXCL8,FCGR3B,CSF3R,FPR1	high	GBC paper linked inflammation
+annotation	T_NK	pan_T	CD3D,CD3E,TRBC1,TRBC2,IL7R	high	T-cell annotation
+annotation	T_NK	CD8_cytotoxic	NKG7,CCL5,GZMB,PRF1,CTSW	high	cytotoxic T/NK-like
+annotation	T_NK	CD8_exhausted	PDCD1,LAG3,TIGIT,HAVCR2,CTLA4,TOX	high	immune dysfunction candidate
+annotation	T_NK	Treg	FOXP3,IL2RA,TNFRSF4,TNFRSF18,IKZF2	high	regulatory T cell
+annotation	B_plasma	B_cell	MS4A1,CD79A,CD74,HLA-DRA,CD37	high	B-cell annotation
+annotation	B_plasma	plasma	MZB1,JCHAIN,SDC1,DERL3,IGHG1	high	plasma cell annotation
+annotation	endothelial_pericyte	endothelial	PECAM1,KDR,EMCN,RAMP2,ESAM	high	endothelial annotation
+annotation	endothelial_pericyte	arterial_like_endothelial	GJA5,FBLN5,GJA4,EFNB2,SOX17	medium	dCCA paper vascular-neural proximity
+annotation	endothelial_pericyte	pericyte	RGS5,MCAM,CSPG4,PDGFRB,NOTCH3	high	perivascular support
+annotation	Schwann_neural	Schwann	SOX10,S100B,MPZ,PLP1,PMP22,NGFR	high	neural-related annotation
+annotation	Schwann_neural	glial_like	GFAP,PLP1,S100B,ERBB3,SOX10	medium	broader neural support
+mechanism	epithelial	EMT_invasion	VIM,CXCL8,MMP7,LAMC2,ITGA6,ITGB4	high	invasion and neural interaction candidate
+mechanism	epithelial	EGFR_AREG_axis	AREG,EGFR,EGR1,FOS,JUN,DUSP6	high	GBC multi-omic reference
+mechanism	epithelial	CXCL5_neutrophil_axis	CXCL5,CXCL8,IL1B,PTGS2,SAA1	high	pro-inflammatory recruitment candidate
+mechanism	epithelial	axonogenesis_neural	NRP1,SEMA3C,L1CAM,PLXNB2,ROBO1,EFNA1	medium	neural guidance-related
+mechanism	fibroblast_CAF	ECM_fibrosis	COL11A1,CTHRC1,THBS2,SULF1,MMP14,POSTN	high	space-validated CAF candidate
+mechanism	myeloid	immune_suppressive_TAM	SPP1,APOE,C1QC,TREM2,IL1B,VEGFA	high	pro-remodeling macrophage state
+mechanism	T_NK	CD8_dysfunction	PDCD1,LAG3,TIGIT,HAVCR2,TOX,CXCL13	high	PNI-high immune dysfunction candidate
+mechanism	Schwann_neural	neural_interaction	MPZ,MPZL1,DAG1,LAMB3,ITGB4,APP,SORL1	medium	dCCA PNI interaction candidates
