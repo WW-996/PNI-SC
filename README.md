@@ -34,3 +34,25 @@
 - 数据类型：`10x scRNA-seq`
 - 标签粒度：`PNI` 为病人级标签
 - 研究阶段：以机制筛选和假设生成优先，后续兼容空间组学验证
+
+## Quick environment setup (minimal)
+
+```bash
+python -m venv .venv
+.venv/Scripts/activate
+python -m pip install -r requirements.txt
+```
+
+For notebook variant generation:
+
+```bash
+python tmp/make_no_p02_highlow_notebooks.py
+python tmp/make_no_p02_highlow_notebooks.py --root "D:\\path\\to\\PNI SC"
+```
+
+You can also override root path with environment variable:
+
+```bash
+set PNI_SC_ROOT=D:\\path\\to\\PNI SC
+python tmp/make_no_p02_highlow_notebooks.py
+```

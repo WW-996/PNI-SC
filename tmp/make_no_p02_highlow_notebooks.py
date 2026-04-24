@@ -1,12 +1,20 @@
 from __future__ import annotations
 
+import argparse
 import json
+import os
 from pathlib import Path
 from textwrap import dedent
 
 
-ROOT = Path(r"d:\Codex\Project\PNI SC")
+ROOT = Path(__file__).resolve().parents[1]
 NOTEBOOKS = ROOT / "notebooks"
+
+
+def set_root(root: Path) -> None:
+    global ROOT, NOTEBOOKS
+    ROOT = root.resolve()
+    NOTEBOOKS = ROOT / "notebooks"
 
 
 def to_source(text: str) -> list[str]:
@@ -41,7 +49,22 @@ import matplotlib.pyplot as plt
 
 
 class Config:
-    BASE_DIR = Path(r"D:\\Codex\\Project\\PNI SC")
+    @staticmethod
+    def _resolve_base_dir() -> Path:
+        env_root = os.environ.get("PNI_SC_ROOT")
+        candidates = []
+        if env_root:
+            candidates.append(Path(env_root).expanduser())
+        cwd = Path.cwd()
+        candidates.extend([cwd, cwd.parent])
+
+        for candidate in candidates:
+            resolved = candidate.resolve()
+            if (resolved / "notebooks").exists() and (resolved / "results").exists():
+                return resolved
+        return cwd.resolve()
+
+    BASE_DIR = _resolve_base_dir.__func__()
 
     QC_INDEX = BASE_DIR / "results" / "tables" / "qc" / "qc_clean_object_index.tsv"
     OUT_DIR = BASE_DIR / "results" / "intermediate" / "integration_noP02_highlow"
@@ -722,6 +745,22 @@ def build_subcluster() -> None:
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        description="Generate no-P02 high/low notebook variants."
+    )
+    parser.add_argument(
+        "--root",
+        type=Path,
+        default=None,
+        help="Repository root path. Defaults to this script's parent repo root.",
+    )
+    args = parser.parse_args()
+
+    if args.root is not None:
+        set_root(args.root)
+    elif os.environ.get("PNI_SC_ROOT"):
+        set_root(Path(os.environ["PNI_SC_ROOT"]))
+
     build_main()
     build_subcluster()
-    print("No-P02 high/low notebooks generated.")
+    print(f"No-P02 high/low notebooks generated under: {NOTEBOOKS}")
