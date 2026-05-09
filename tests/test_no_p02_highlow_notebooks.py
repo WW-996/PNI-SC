@@ -7,6 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 NOTEBOOKS_DIR = ROOT / "notebooks"
 MAIN_NOTEBOOK = NOTEBOOKS_DIR / "02_integration_annotation_noP02_highlow.ipynb"
 SUBCLUSTER_NOTEBOOK = NOTEBOOKS_DIR / "02.2_subclustering_annotation_noP02_highlow.ipynb"
+MESENCHYMAL_NEURAL_NOTEBOOK = NOTEBOOKS_DIR / "02.4_mesenchymal_neural_subclustering.ipynb"
 
 
 def load_notebook(path: Path) -> dict:
@@ -26,6 +27,12 @@ class NoP02HighLowNotebookTests(unittest.TestCase):
         self.assertTrue(
             SUBCLUSTER_NOTEBOOK.exists(),
             f"Missing notebook: {SUBCLUSTER_NOTEBOOK}",
+        )
+
+    def test_mesenchymal_neural_variant_exists(self) -> None:
+        self.assertTrue(
+            MESENCHYMAL_NEURAL_NOTEBOOK.exists(),
+            f"Missing notebook: {MESENCHYMAL_NEURAL_NOTEBOOK}",
         )
 
     def test_main_variant_uses_no_p02_outputs_and_filtering(self) -> None:
@@ -84,6 +91,55 @@ class NoP02HighLowNotebookTests(unittest.TestCase):
         self.assertIn('title=f"{title} - Dotplot{label}"', joined)
         self.assertIn('title=f"Cluster3_Contamination_Check{label}"', joined)
         self.assertIn('title=f"Myeloid_Cluster1_vs_2_Refined_Markers{label}"', joined)
+
+    def test_mesenchymal_neural_variant_uses_expected_no_p02_flow(self) -> None:
+        joined = joined_source(MESENCHYMAL_NEURAL_NOTEBOOK)
+
+        self.assertIn('EXCLUDED_PATIENT_IDS = ["P02"]', joined)
+        self.assertIn('EXPORT_PDF = True', joined)
+        self.assertIn('integration_noP02_highlow', joined)
+        self.assertIn("annotated_broad_noP02_highlow.h5ad", joined)
+        self.assertIn('mnc = adata[adata.obs["broad_celltype"] == "Mesenchymal/Neural-Cres"].copy()', joined)
+        self.assertIn('mnc.obs["mesenchymal_neural_subtype"]', joined)
+        self.assertIn('subset_mesenchymal_neural_annotated_noP02_highlow.h5ad', joined)
+        self.assertIn('mesenchymal_neural_cluster_annotation_template_noP02_highlow.tsv', joined)
+        self.assertIn('mesenchymal_neural_patient_contribution_noP02_highlow.tsv', joined)
+        self.assertIn('mesenchymal_neural_cluster_markers_noP02_highlow.tsv', joined)
+        self.assertIn('mesenchymal_neural_subtype_summary_noP02_highlow.tsv', joined)
+        self.assertIn('tumor_only', joined)
+        self.assertIn('save_figure(', joined)
+        self.assertIn("plot_markers(", joined)
+        self.assertIn("plot_patient_contribution(", joined)
+        self.assertIn('Pericyte_like', joined)
+        self.assertIn('Schwann_core', joined)
+        self.assertIn('Glial_like', joined)
+        self.assertIn('PNI_hint', joined)
+        self.assertIn('mesenchymal_pericyte_like', joined)
+        self.assertIn('schwann_core', joined)
+        self.assertIn('glial_like', joined)
+        self.assertIn('undetermined_mesenchymal_neural', joined)
+        self.assertIn('sc.tl.rank_genes_groups(mnc, groupby="leiden", method="wilcoxon", pts=True)', joined)
+        self.assertIn('SUSPECT_CLUSTER_ID = "8"', joined)
+        self.assertIn('DROP_SUSPECT_CLUSTER = True', joined)
+        self.assertIn('if Config.SUSPECT_CLUSTER_ID in available_clusters:', joined)
+        self.assertIn('sc.tl.rank_genes_groups(mnc, groupby="leiden", groups=[Config.SUSPECT_CLUSTER_ID], reference="rest", method="wilcoxon", pts=True)', joined)
+        self.assertIn('mesenchymal_neural_cluster8_vs_rest_markers_noP02_highlow.tsv', joined)
+        self.assertIn('Cluster8_Identity_Check', joined)
+        self.assertIn('if Config.DROP_SUSPECT_CLUSTER:', joined)
+        self.assertIn('mnc = mnc[mnc.obs["leiden"].astype(str) != Config.SUSPECT_CLUSTER_ID].copy()', joined)
+        self.assertIn('RECLUSTER_AFTER_DROP = True', joined)
+        self.assertIn('mnc_pre_drop = mnc.copy()', joined)
+        self.assertIn('reclustered = mnc_pre_drop.copy()', joined)
+        self.assertIn('reclustered = reclustered[reclustered.obs["leiden"].astype(str) != Config.SUSPECT_CLUSTER_ID].copy()', joined)
+        self.assertIn('reclustered = run_subset_pipeline(reclustered, batch_key="sample_id", resolution=Config.RESOLUTION_MAIN)', joined)
+        self.assertIn('mesenchymal_neural_reclustered_cluster_markers_noP02_highlow.tsv', joined)
+        self.assertIn('Mesenchymal_Neural_Reclustered_overview', joined)
+        self.assertIn('Mesenchymal_Neural_Reclustered_Markers_Final', joined)
+        self.assertIn('Mesenchymal_Neural_Reclustered_Markers_Final_dotplot', joined)
+        self.assertIn('Mesenchymal_Neural_Reclustered_Markers_Final_violin', joined)
+        self.assertIn('Mesenchymal_Neural_Reclustered_Markers_Final_feature_umap', joined)
+        self.assertIn('patient_contribution_mesenchymal_neural_reclustered', joined)
+        self.assertIn('subset_mesenchymal_neural_reclustered_noP02_highlow.h5ad', joined)
 
 
 if __name__ == "__main__":
